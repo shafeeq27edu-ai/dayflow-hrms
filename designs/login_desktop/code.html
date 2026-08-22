@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dayflow - Sign In</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#858383",
+                      "primary-fixed": "#e5e2e1",
+                      "secondary-fixed-dim": "#ffb4a4",
+                      "inverse-surface": "#30312e",
+                      "surface-bright": "#fbf9f5",
+                      "outline": "#747878",
+                      "surface-variant": "#e4e2de",
+                      "inverse-primary": "#c8c6c5",
+                      "secondary-container": "#d73b19",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#251a00",
+                      "on-secondary-fixed": "#3d0600",
+                      "background": "#fbf9f5",
+                      "tertiary-fixed": "#ffdf9a",
+                      "on-tertiary-container": "#a67e00",
+                      "tertiary": "#000000",
+                      "on-error-container": "#93000a",
+                      "surface": "#fbf9f5",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1b1c1a",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#ffdad3",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdad6",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#251a00",
+                      "on-surface": "#1b1c1a",
+                      "surface-container": "#efeeea",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "primary-container": "#1c1b1b",
+                      "secondary": "#b22200",
+                      "on-secondary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f2f0ed",
+                      "surface-container-low": "#f5f3ef",
+                      "on-surface-variant": "#444748",
+                      "outline-variant": "#c4c7c7",
+                      "primary": "#000000",
+                      "tertiary-fixed-dim": "#f8be00",
+                      "surface-container-highest": "#e4e2de",
+                      "surface-container-high": "#eae8e4",
+                      "on-secondary-fixed-variant": "#8c1800",
+                      "on-tertiary-fixed-variant": "#5a4300",
+                      "on-primary-fixed-variant": "#474746"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "unit": "8px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "data-mono": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-xl": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center p-4 antialiased">
+<!-- Ambient Texture/Background Accent -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden opacity-50 mix-blend-multiply z-0">
+<svg class="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid-pattern" patternunits="userSpaceOnUse" width="40">
+<path class="text-surface-variant" d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Login Container -->
+<div class="relative z-10 w-full max-w-[480px]">
+<!-- Brand Header -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-stack-sm tracking-tight">Dayflow</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enterprise Human Resources</p>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest border border-primary p-stack-lg rounded shadow-[4px_4px_0px_0px_rgba(27,28,26,1)] transition-transform duration-300">
+<form action="#" class="space-y-stack-md" method="POST">
+<div class="border-b border-primary pb-stack-sm mb-stack-md">
+<h2 class="font-label-md text-label-md text-primary uppercase">Secure Sign In</h2>
+</div>
+<!-- Input Group: ID/Email -->
+<div class="group">
+<label class="block font-label-sm text-label-sm text-on-surface mb-stack-sm" for="identifier">Employee ID or Email</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<input class="block w-full pl-10 pr-3 py-3 font-body-md text-body-md text-on-surface bg-surface-container-lowest border border-primary rounded-DEFAULT focus:outline-none focus:ring-0 focus:border-tertiary-fixed-dim focus:border-b-2 transition-all duration-200 placeholder:text-on-surface-variant placeholder:opacity-50" id="identifier" name="identifier" placeholder="e.g. jdoe@company.com" required="" type="text"/>
+</div>
+</div>
+<!-- Input Group: Password -->
+<div class="group">
+<div class="flex justify-between items-center mb-stack-sm">
+<label class="block font-label-sm text-label-sm text-on-surface" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline decoration-1 underline-offset-2" href="#">Forgot Password?</a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant pointer-events-none">lock</span>
+<input class="block w-full pl-10 pr-3 py-3 font-body-md text-body-md text-on-surface bg-surface-container-lowest border border-primary rounded-DEFAULT focus:outline-none focus:ring-0 focus:border-tertiary-fixed-dim focus:border-b-2 transition-all duration-200" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-stack-sm">
+<button class="w-full flex justify-center items-center py-3 px-4 bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT border border-primary hover:bg-secondary hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,0.2)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none transition-all duration-200 ease-out group/btn" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined ml-2 text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- System Notice -->
+<div class="text-center pt-stack-md mt-stack-md border-t border-surface-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield_lock</span>
+                        Authorized personnel only
+                    </p>
+</div>
+</form>
+</div>
+</div>
+</body></html>

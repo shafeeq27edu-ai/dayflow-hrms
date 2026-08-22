@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dayflow - HR Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#858383",
+                      "primary-fixed": "#e5e2e1",
+                      "secondary-fixed-dim": "#ffb4a4",
+                      "inverse-surface": "#30312e",
+                      "surface-bright": "#fbf9f5",
+                      "outline": "#747878",
+                      "surface-variant": "#e4e2de",
+                      "inverse-primary": "#c8c6c5",
+                      "secondary-container": "#d73b19",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#251a00",
+                      "on-secondary-fixed": "#3d0600",
+                      "background": "#fbf9f5",
+                      "tertiary-fixed": "#ffdf9a",
+                      "on-tertiary-container": "#a67e00",
+                      "tertiary": "#000000",
+                      "on-error-container": "#93000a",
+                      "surface": "#fbf9f5",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1b1c1a",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#ffdad3",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dbdad6",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#251a00",
+                      "on-surface": "#1b1c1a",
+                      "surface-container": "#efeeea",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#5f5e5e",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "primary-container": "#1c1b1b",
+                      "secondary": "#b22200",
+                      "on-secondary-container": "#fffbff",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f2f0ed",
+                      "surface-container-low": "#f5f3ef",
+                      "on-surface-variant": "#444748",
+                      "outline-variant": "#c4c7c7",
+                      "primary": "#000000",
+                      "tertiary-fixed-dim": "#f8be00",
+                      "surface-container-highest": "#e4e2de",
+                      "surface-container-high": "#eae8e4",
+                      "on-secondary-fixed-variant": "#8c1800",
+                      "on-tertiary-fixed-variant": "#5a4300",
+                      "on-primary-fixed-variant": "#474746"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "unit": "8px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "data-mono": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-xl": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .material-symbols-outlined {
+              font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+          }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-stack-lg fixed left-0 top-0 w-[280px] bg-surface-container border-r-2 border-primary z-20">
+<div class="px-gutter mb-stack-lg flex flex-col gap-stack-sm">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1; font-size: 32px;">corporate_fare</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Humanize</h1>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">HR Management System</p>
+</div>
+<div class="flex-grow overflow-y-auto px-unit">
+<ul class="flex flex-col gap-unit">
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-secondary font-bold border-l-4 border-secondary bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-on-surface-variant border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Employees</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-on-surface-variant border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-on-surface-variant border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span class="font-label-md text-label-md">Time Off</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-on-surface-variant border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payroll</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-stack-md px-stack-md py-3 rounded-DEFAULT transition-colors duration-200 ease-in-out hover:bg-surface-variant hover:text-primary text-on-surface-variant border-l-4 border-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto px-gutter pt-stack-md">
+<button class="w-full bg-secondary text-on-secondary font-label-md text-label-md py-3 border border-primary rounded hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Add New Employee
+            </button>
+<div class="mt-stack-lg flex items-center gap-stack-sm pt-stack-md border-t border-outline-variant">
+<img alt="HR Manager Profile" class="w-10 h-10 rounded-full border border-primary object-cover" data-alt="Professional headshot of an HR Manager, confident smile, brightly lit office environment, modern editorial style photography, crisp focus on the face with a softly blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6pRn7Pkl6hdOTiBBRQQyItFBLXtR5BrgRo6ySc5GK18UUQSmwRhgwvq2ZJR3ZsQdGGqtcHmL74Dqva6EIBFSMo2ilurxFmtoCeji7s6Af7G4QoWXjr6cZDoP4Qdl5T0Uzdc6Hr264w-iWUAmMqj876xsh7nX6YQFohhrozfeWQztpT3JIANp79gycb2JQMQGdT1mJanlb-aXuFyHlzSgwgK-w6Q4s_HDpLEVwJ0CAA07RPchx0KTPUw"/>
+<div>
+<p class="font-label-md text-label-md text-primary">Jane Doe</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">HR Director</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col ml-[280px] w-[calc(100%-280px)]">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[280px] h-16 bg-surface border-b-2 border-primary flex items-center justify-between px-margin-desktop z-10">
+<div class="flex-1 flex items-center">
+<!-- Search Bar -->
+<div class="relative w-64 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary">search</span>
+<input class="w-full bg-surface-container-low border border-primary rounded-DEFAULT py-2 pl-10 pr-3 font-body-md text-body-md text-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" placeholder="Search employees..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high hover:text-primary rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-primary object-cover cursor-pointer" data-alt="User avatar thumbnail, professional setting, sharp focus, modern bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ45UF96o51_TsR5QlwEveAwrFuAhASjhipvv9jRsQUUkEvQ6XMVi8bxUeYMSoGMHzLwZYIKDCAiC_MDDaNS6iuIF96s6c9Ft47XSUby9OMSXqxncvod9IH-AjqemAg-C0sFrnEBm82ufIYEPHniNGP0eANmspHnyYYavc7aYPCOcdHVuV-UC8CxwV6F2CcdI1-2XDML4DbJ-_r5ElsH4wwTP_e6NX4HgDOkUwGTAVwB2EqKlZEaBSPA"/>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 mt-16 p-margin-desktop overflow-y-auto bg-background">
+<div class="max-w-container-max mx-auto flex flex-col gap-stack-lg">
+<!-- Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary">Dashboard</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Welcome back. Here's what's happening today.</p>
+</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">
+<!--?php echo date('l, F j, Y'); ?--> <!-- Mocking dynamic date visually -->
+                        Thursday, October 26, 2023
+                    </div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-primary p-stack-md flex flex-col gap-stack-sm relative overflow-hidden group hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Total Employees</span>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary">124</div>
+<div class="w-full h-1 bg-surface-container mt-auto">
+<div class="h-full bg-primary w-[100%]"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-primary p-stack-md flex flex-col gap-stack-sm relative overflow-hidden group hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Present Today</span>
+<span class="material-symbols-outlined text-secondary">how_to_reg</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary">102</div>
+<div class="font-label-sm text-label-sm text-secondary flex items-center gap-1 mt-auto">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +2% from yesterday
+                        </div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-primary p-stack-md flex flex-col gap-stack-sm relative overflow-hidden group hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">On Leave</span>
+<span class="material-symbols-outlined text-outline">flight_takeoff</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary">8</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-auto">
+                            3 planned, 5 unplanned
+                        </div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest border border-primary p-stack-md flex flex-col gap-stack-sm relative overflow-hidden group hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 bg-tertiary-fixed-dim/10">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Pending Requests</span>
+<span class="material-symbols-outlined text-on-tertiary-container">pending_actions</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-primary">5</div>
+<div class="font-label-sm text-label-sm text-on-tertiary-container mt-auto font-bold">
+                            Requires review
+                        </div>
+</div>
+</div>
+<!-- Main Data Section (Bento layout style) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Today's Attendance Table -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-primary flex flex-col">
+<div class="p-stack-md border-b border-primary flex justify-between items-center">
+<h3 class="font-headline-lg text-headline-lg text-primary">Today's Attendance</h3>
+<button class="font-label-md text-label-md text-secondary hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase">Employee</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase">Department</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase">Check-in Time</th>
+<th class="p-stack-md font-label-sm text-label-sm text-on-surface-variant uppercase">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors group">
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<img alt="Employee" class="w-8 h-8 rounded-full border border-primary object-cover" data-alt="Portrait of a young male professional in a modern office setting, bright lighting, smart casual attire, clean editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0P03FBtJLHoHplW8ga8unQzN-dA8zctzYyT1PMJvVJC19KfqdaM1SSZJaVWfDXdoSc9ZEwofz1bxUSy13HKUAyIXdauDWo_xAwKpoYqAZRhj_QUAR6EqdRvFyJJBnvLCI35hAC-itDRs_J5Pbf_nkzoIWQBlu5WEO6HFQEUJ20knhi5Qn5ud4QnK1GNkMHH3NQkSE0T5IezC372uOnWJg5ofhVbiq4zJA6uJFc2ykOVMY5HyChJ5RVA"/>
+<span class="font-data-mono text-data-mono text-primary font-bold group-hover:text-secondary transition-colors">Alex Rivera</span>
+</div>
+</td>
+<td class="p-stack-md font-body-md text-body-md text-on-surface-variant">Engineering</td>
+<td class="p-stack-md font-data-mono text-data-mono text-on-surface-variant">08:45 AM</td>
+<td class="p-stack-md">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-variant text-primary font-label-sm text-label-sm rounded-DEFAULT border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Present
+                                            </span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors group">
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<img alt="Employee" class="w-8 h-8 rounded-full border border-primary object-cover" data-alt="Portrait of a female professional with glasses, smiling, bright corporate background, high contrast modern photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgpPxCcjm0dN2-nSO9EtKd1BUyQgaiZgl5zddU2Ooy7-3tamOy_6RCYi5uIC3SX7KP_GdZTQSJLfnof8WkJqDOpkSfxR3A7Pm89VR57wmUWJ0J209stmRkq2vD9egNj8XahS6x4lK8zK_3GJmPbQmAsbUti87XQMgK7EcMw3lBl5n7GGrHn5jGMBlEPpAzq0lYQjyXAy9koMoT75LFM8S6WtBqDI-TPlBeD2BRhYTKQ9UP_5uKUnySJw"/>
+<span class="font-data-mono text-data-mono text-primary font-bold group-hover:text-secondary transition-colors">Samantha Wu</span>
+</div>
+</td>
+<td class="p-stack-md font-body-md text-body-md text-on-surface-variant">Design</td>
+<td class="p-stack-md font-data-mono text-data-mono text-on-surface-variant">09:02 AM</td>
+<td class="p-stack-md">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-variant text-primary font-label-sm text-label-sm rounded-DEFAULT border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Present
+                                            </span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors group">
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<img alt="Employee" class="w-8 h-8 rounded-full border border-primary object-cover" data-alt="Portrait of a senior male professional, serious expression, creative studio lighting, sharp focus, monochrome outfit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe9Cjwm0Nofg7wzEsGD5EaqcMo3ZgcYo_O-ubfbvrbteui6HXcly5Ab9xlHDQ-5FRzOD2duEkhtxcqSK-FH2ITCdZPZNKjFPB47SATTDnVDqcdP0a38UOzLXV_j-0LiQINXNB7aRplreiGXUMU-bp32NkNqPGnd8tVXIrmkeFmXCSOJrSsOQL95DfNkmCMX0T_w_hh5D01w_cyNHWk78LKK1B9NrAvzIXj15TuU5o801do_BNHOB4PUQ"/>
+<span class="font-data-mono text-data-mono text-primary font-bold group-hover:text-secondary transition-colors">Marcus Johnson</span>
+</div>
+</td>
+<td class="p-stack-md font-body-md text-body-md text-on-surface-variant">Marketing</td>
+<td class="p-stack-md font-data-mono text-data-mono text-on-surface-variant text-outline">--:--</td>
+<td class="p-stack-md">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-tertiary-fixed-dim/20 text-on-tertiary-container font-label-sm text-label-sm rounded-DEFAULT border border-tertiary-fixed-dim/50">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> On Leave
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors group">
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-8 h-8 rounded-full border border-primary bg-surface-container flex items-center justify-center font-label-sm text-primary font-bold">EK</div>
+<span class="font-data-mono text-data-mono text-primary font-bold group-hover:text-secondary transition-colors">Elena Koch</span>
+</div>
+</td>
+<td class="p-stack-md font-body-md text-body-md text-on-surface-variant">Sales</td>
+<td class="p-stack-md font-data-mono text-data-mono text-on-surface-variant">08:55 AM</td>
+<td class="p-stack-md">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-variant text-primary font-label-sm text-label-sm rounded-DEFAULT border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Present
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pending Time-Off Requests -->
+<div class="bg-surface-container-lowest border border-primary flex flex-col">
+<div class="p-stack-md border-b border-primary flex justify-between items-center bg-tertiary-fixed/10">
+<h3 class="font-headline-md text-headline-md text-primary">Pending Requests</h3>
+<span class="bg-secondary text-on-secondary font-label-sm px-2 py-1 rounded">5</span>
+</div>
+<div class="flex-1 overflow-y-auto p-stack-md flex flex-col gap-stack-md">
+<!-- Request Item 1 -->
+<div class="border border-outline-variant p-stack-sm rounded-DEFAULT hover:border-primary transition-colors bg-surface-bright">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<img alt="Avatar" class="w-6 h-6 rounded-full border border-primary object-cover" data-alt="Small avatar of a smiling employee in a brightly lit modern office, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMy92txEmI4UJWeAWRbiLOlt3zHJ3m-tfn0d5kJ3PTrzFv7wBFwmHuv2IgUrIc7GgHUt4wlS-Zh8bPJqMYZBfWE_WzUM70qW1iz4DRJRZCywQrR2_-ZUMdkddmGRlco22xFRx09XpMFI1DS_ky798q6C0NlaZc8s3vXf_pkMog2gZ9Cm5Uj3bq1zWllHBPTqzN4g7M396feHbS4oOjpiyVURUgLfnvwN3hf4W1TiZeJkTX3pdCffLU_A"/>
+<span class="font-label-md text-label-md text-primary">David Kim</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sick Leave</span>
+</div>
+<p class="font-data-mono text-data-mono text-primary mb-3">Oct 27 - Oct 28 (2 Days)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-secondary text-on-secondary font-label-sm py-1.5 border border-primary rounded hover:bg-primary transition-colors">Approve</button>
+<button class="flex-1 bg-surface text-primary font-label-sm py-1.5 border border-primary rounded hover:bg-surface-container transition-colors">Deny</button>
+</div>
+</div>
+<!-- Request Item 2 -->
+<div class="border border-outline-variant p-stack-sm rounded-DEFAULT hover:border-primary transition-colors bg-surface-bright">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-primary bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-primary">SJ</div>
+<span class="font-label-md text-label-md text-primary">Sarah Jenkins</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Vacation</span>
+</div>
+<p class="font-data-mono text-data-mono text-primary mb-3">Nov 15 - Nov 20 (5 Days)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-secondary text-on-secondary font-label-sm py-1.5 border border-primary rounded hover:bg-primary transition-colors">Approve</button>
+<button class="flex-1 bg-surface text-primary font-label-sm py-1.5 border border-primary rounded hover:bg-surface-container transition-colors">Deny</button>
+</div>
+</div>
+<!-- Request Item 3 -->
+<div class="border border-outline-variant p-stack-sm rounded-DEFAULT hover:border-primary transition-colors bg-surface-bright">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<img alt="Avatar" class="w-6 h-6 rounded-full border border-primary object-cover" data-alt="Small avatar of a professional in a modern office, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxcdIvTDpFiWhZQDGQa0uACDxUBs7HRY1SJr0aHhrXSQBkJdapOs4LT2tLp8B4CWLbvxUFX77SamXSHiwuauoeD7szRlCfSsJhbK4XLoHoowNgb06yvofU9PgQ9xmYaQi3IKL2HxV6k2zzbh2uW74eXSJoNcnvCCBW_bMY7NDMzzyx3-qGSvfPHzXlpHReiU4gsLOGXSzl0Kga2OKg0Y-bwJRSFqYi4wO2fF1Nd6a5IJ_wrxjLyDuP8A"/>
+<span class="font-label-md text-label-md text-primary">Tom Brant</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Personal</span>
+</div>
+<p class="font-data-mono text-data-mono text-primary mb-3">Nov 02 (1 Day)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-secondary text-on-secondary font-label-sm py-1.5 border border-primary rounded hover:bg-primary transition-colors">Approve</button>
+<button class="flex-1 bg-surface text-primary font-label-sm py-1.5 border border-primary rounded hover:bg-surface-container transition-colors">Deny</button>
+</div>
+</div>
+</div>
+<div class="p-3 border-t border-outline-variant text-center bg-surface">
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All Requests</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
