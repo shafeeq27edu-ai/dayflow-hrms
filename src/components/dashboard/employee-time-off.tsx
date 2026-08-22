@@ -48,7 +48,7 @@ export async function EmployeeTimeOff({ userId }: { userId: string }) {
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
                 {String(balances.casual.total - balances.casual.used).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Available</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
               <div className="bg-secondary h-full border-r border-primary" style={{ width: `${(balances.casual.used / balances.casual.total) * 100}%` }}></div>
@@ -68,7 +68,7 @@ export async function EmployeeTimeOff({ userId }: { userId: string }) {
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
                 {String(balances.sick.total - balances.sick.used).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Available</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
               <div className="bg-[#FFC300] h-full border-r border-primary" style={{ width: `${(balances.sick.used / balances.sick.total) * 100}%` }}></div>
@@ -88,7 +88,7 @@ export async function EmployeeTimeOff({ userId }: { userId: string }) {
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
                 {String(balances.earned.total - balances.earned.used).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Available</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
               <div className="bg-primary h-full border-r border-primary" style={{ width: `${(balances.earned.used / balances.earned.total) * 100}%` }}></div>

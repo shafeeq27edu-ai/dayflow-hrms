@@ -139,7 +139,7 @@ export default async function AttendancePage() {
               {kpis.avgAbsent} <span className="font-label-sm text-label-sm text-on-surface-variant">EMP/DAY</span>
             </div>
           </div>
-          <div className="bg-secondary text-on-secondary border border-primary p-6 rounded-DEFAULT shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+          <div className="bg-secondary text-secondary-foreground border border-primary p-6 rounded-DEFAULT shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
             <div className="flex justify-between items-start mb-4">
               <span className="font-label-md text-label-md uppercase tracking-widest opacity-90">Attendance Rate</span>
               <span className="material-symbols-outlined">monitoring</span>

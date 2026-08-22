@@ -108,7 +108,7 @@ export default function NewEmployeePage() {
           <Link href="/employees" className="px-6 py-2 border border-primary rounded text-primary hover:bg-surface-variant transition-colors font-label-md">
             Cancel
           </Link>
-          <button type="submit" disabled={loading} className="px-6 py-2 bg-primary text-on-primary border border-primary rounded hover:bg-secondary transition-colors font-label-md disabled:opacity-50">
+          <button type="submit" disabled={loading} className="px-6 py-2 bg-primary text-primary-foreground border border-primary rounded hover:bg-secondary transition-colors font-label-md disabled:opacity-50">
             {loading ? 'Creating...' : 'Create Employee'}
           </button>
         </div>

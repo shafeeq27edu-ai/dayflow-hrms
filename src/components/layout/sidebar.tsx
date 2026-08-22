@@ -71,7 +71,7 @@ export async function Sidebar() {
       </ul>
       {isAdminOrHr && (
         <div className="px-gutter mt-auto">
-          <Link href="/employees/new" className="block text-center w-full py-stack-sm border border-primary bg-primary text-on-primary font-label-md text-label-md rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
+          <Link href="/employees/new" className="block text-center w-full py-stack-sm border border-primary bg-primary text-primary-foreground font-label-md text-label-md rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
             Add New Employee
           </Link>
         </div>

@@ -57,7 +57,7 @@ export async function HrTimeOff() {
           <button className="px-4 py-2 border border-primary text-primary font-label-md text-label-md rounded hover:bg-surface-variant transition-colors flex items-center gap-2">
             <span className="material-symbols-outlined text-[18px]">filter_list</span> Filter
           </button>
-          <button className="px-4 py-2 border border-primary bg-primary text-on-primary font-label-md text-label-md rounded hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2">
+          <button className="px-4 py-2 border border-primary bg-primary text-primary-foreground font-label-md text-label-md rounded hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2">
             <span className="material-symbols-outlined text-[18px]">download</span> Export Report
           </button>
         </div>
@@ -165,7 +165,7 @@ export async function HrTimeOff() {
                       <button formAction={updateLeaveRequestStatus.bind(null, request.id, 'rejected')} aria-label="Reject" className="w-8 h-8 rounded border border-outline-variant text-error hover:bg-error-container hover:border-error transition-colors flex items-center justify-center">
                         <span className="material-symbols-outlined text-[20px]">close</span>
                       </button>
-                      <button formAction={updateLeaveRequestStatus.bind(null, request.id, 'approved')} aria-label="Approve" className="w-8 h-8 rounded border border-primary bg-primary text-on-primary hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center">
+                      <button formAction={updateLeaveRequestStatus.bind(null, request.id, 'approved')} aria-label="Approve" className="w-8 h-8 rounded border border-primary bg-primary text-primary-foreground hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center">
                         <span className="material-symbols-outlined text-[20px]">check</span>
                       </button>
                     </form>

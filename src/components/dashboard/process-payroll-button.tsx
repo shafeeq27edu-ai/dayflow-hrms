@@ -10,7 +10,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="bg-secondary text-on-secondary border-2 border-primary py-2 px-6 font-label-md text-label-md lift-shadow flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="bg-secondary text-secondary-foreground border-2 border-primary py-2 px-6 font-label-md text-label-md lift-shadow flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       <span className="material-symbols-outlined text-sm">{pending ? 'hourglass_empty' : 'play_arrow'}</span>
       {pending ? 'Processing...' : 'Process Payroll'}

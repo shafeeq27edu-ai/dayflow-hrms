@@ -10,7 +10,7 @@ function SubmitButton({ label }: { label: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="w-full bg-primary text-on-primary py-3 rounded border-2 border-primary font-label-lg text-label-lg hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,1)] transition-all disabled:opacity-70 flex justify-center items-center gap-2"
+      className="w-full bg-primary text-primary-foreground py-3 rounded border-2 border-primary font-label-lg text-label-lg hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,1)] transition-all disabled:opacity-70 flex justify-center items-center gap-2"
     >
       {pending ? <span className="material-symbols-outlined animate-spin text-[20px]">sync</span> : null}
       {label}
@@ -60,7 +60,7 @@ export function ProfileActions({ isOwner, isHrOrAdmin, employee }: ProfileAction
       {isHrOrAdmin && (
         <button 
           onClick={() => setShowEditHr(true)}
-          className="flex items-center gap-2 bg-secondary text-on-secondary border-2 border-primary px-4 py-2 rounded font-label-md text-label-md btn-hover-lift h-fit"
+          className="flex items-center gap-2 bg-secondary text-secondary-foreground border-2 border-primary px-4 py-2 rounded font-label-md text-label-md btn-hover-lift h-fit"
         >
           <span className="material-symbols-outlined text-[18px]">manage_accounts</span>
           Manage Employee
@@ -71,7 +71,7 @@ export function ProfileActions({ isOwner, isHrOrAdmin, employee }: ProfileAction
       {showEditProfile && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-surface w-full max-w-md rounded shadow-[8px_8px_0px_0px_rgba(27,28,26,1)] border-2 border-primary overflow-hidden">
-            <div className="bg-primary text-on-primary p-4 flex justify-between items-center border-b-2 border-primary">
+            <div className="bg-primary text-primary-foreground p-4 flex justify-between items-center border-b-2 border-primary">
               <h3 className="font-headline-md">Edit Profile</h3>
               <button onClick={() => setShowEditProfile(false)} className="hover:opacity-70"><span className="material-symbols-outlined">close</span></button>
             </div>
@@ -112,7 +112,7 @@ export function ProfileActions({ isOwner, isHrOrAdmin, employee }: ProfileAction
       {showEditHr && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-surface w-full max-w-md rounded shadow-[8px_8px_0px_0px_rgba(27,28,26,1)] border-2 border-primary overflow-hidden">
-            <div className="bg-secondary text-on-secondary p-4 flex justify-between items-center border-b-2 border-primary">
+            <div className="bg-secondary text-secondary-foreground p-4 flex justify-between items-center border-b-2 border-primary">
               <h3 className="font-headline-md">Manage Employee</h3>
               <button onClick={() => setShowEditHr(false)} className="hover:opacity-70"><span className="material-symbols-outlined">close</span></button>
             </div>

@@ -73,7 +73,7 @@ export default function NewTimeOffPage() {
         </div>
 
         <div className="pt-4 border-t border-primary flex justify-end">
-          <button type="submit" disabled={loading} className="px-6 py-2 bg-secondary text-on-secondary border border-primary rounded hover:bg-primary transition-colors font-label-md disabled:opacity-50 btn-hover-lift">
+          <button type="submit" disabled={loading} className="px-6 py-2 bg-secondary text-secondary-foreground border border-primary rounded hover:bg-primary transition-colors font-label-md disabled:opacity-50 btn-hover-lift">
             {loading ? 'Submitting...' : 'Submit Request'}
           </button>
         </div>

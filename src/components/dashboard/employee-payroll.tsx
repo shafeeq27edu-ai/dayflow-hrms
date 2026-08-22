@@ -53,7 +53,7 @@ export function EmployeePayroll({ payrollData }: EmployeePayrollProps) {
           </div>
           
           <div className="mt-8 pt-4 border-t border-outline-variant">
-            <button className="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded border border-primary hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,1)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+            <button className="w-full bg-primary text-primary-foreground font-label-md text-label-md py-3 rounded border border-primary hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,1)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
               View Full Payslip
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </button>

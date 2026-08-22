@@ -114,7 +114,7 @@ export function LoginForm() {
       <div className="pt-stack-sm">
         <button
           disabled={loading}
-          className="w-full flex justify-center items-center py-3 px-4 bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT border border-primary hover:bg-secondary hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,0.2)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none transition-all duration-200 ease-out group/btn disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex justify-center items-center py-3 px-4 bg-primary text-primary-foreground font-label-md text-label-md rounded-DEFAULT border border-primary hover:bg-secondary hover:shadow-[4px_4px_0px_0px_rgba(27,28,26,0.2)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none transition-all duration-200 ease-out group/btn disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
         >
           <span>{loading ? 'Signing In...' : 'Sign In'}</span>

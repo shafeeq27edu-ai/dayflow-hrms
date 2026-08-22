@@ -94,7 +94,7 @@ export function AttendanceWidget({
             <button 
               onClick={handleCheckIn}
               disabled={loading}
-              className="bg-primary text-on-primary px-8 py-4 border border-primary font-label-md text-label-md uppercase tracking-wider rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex items-center gap-2 disabled:opacity-50"
+              className="bg-primary text-primary-foreground px-8 py-4 border border-primary font-label-md text-label-md uppercase tracking-wider rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex items-center gap-2 disabled:opacity-50"
             >
               <span className="material-symbols-outlined">login</span>
               Check In
@@ -103,7 +103,7 @@ export function AttendanceWidget({
             <button 
               onClick={handleCheckOut}
               disabled={loading}
-              className="bg-secondary text-on-secondary px-8 py-4 border border-primary font-label-md text-label-md uppercase tracking-wider rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex items-center gap-2 disabled:opacity-50"
+              className="bg-secondary text-secondary-foreground px-8 py-4 border border-primary font-label-md text-label-md uppercase tracking-wider rounded hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex items-center gap-2 disabled:opacity-50"
             >
               <span className="material-symbols-outlined">logout</span>
               Check Out

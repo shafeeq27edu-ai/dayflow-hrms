@@ -170,7 +170,7 @@ export async function HRDashboard({ employee }: { employee: any }) {
         <div className="bg-surface-container-lowest border border-primary flex flex-col">
           <div className="p-stack-md border-b border-primary flex justify-between items-center bg-tertiary-fixed/10">
             <h3 className="font-headline-md text-headline-md text-primary">Pending Requests</h3>
-            <span className="bg-secondary text-on-secondary font-label-sm px-2 py-1 rounded">{pendingRequests || 0}</span>
+            <span className="bg-secondary text-secondary-foreground font-label-sm px-2 py-1 rounded">{pendingRequests || 0}</span>
           </div>
           <div className="flex-1 overflow-y-auto p-stack-md flex flex-col gap-stack-md">
             {recentLeaveRequests?.map(request => (
@@ -193,7 +193,7 @@ export async function HRDashboard({ employee }: { employee: any }) {
                   {request.start_date} - {request.end_date}
                 </p>
                 <div className="flex gap-2">
-                  <Link href={`/time-off?request=${request.id}`} className="flex-1 text-center bg-secondary text-on-secondary font-label-sm py-1.5 border border-primary rounded hover:bg-primary transition-colors">Review</Link>
+                  <Link href={`/time-off?request=${request.id}`} className="flex-1 text-center bg-secondary text-secondary-foreground font-label-sm py-1.5 border border-primary rounded hover:bg-primary transition-colors">Review</Link>
                 </div>
               </div>
             ))}

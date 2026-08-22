@@ -57,7 +57,7 @@ export function ChangePasswordForm() {
           className="w-full border border-primary rounded px-3 py-2 bg-background focus:ring-2 focus:ring-secondary focus:outline-none" 
         />
       </div>
-      <button type="submit" className="px-4 py-2 bg-primary text-on-primary border border-primary rounded hover:bg-secondary transition-colors font-label-md">
+      <button type="submit" className="px-4 py-2 bg-primary text-primary-foreground border border-primary rounded hover:bg-secondary transition-colors font-label-md">
         Update Password
       </button>
     </form>

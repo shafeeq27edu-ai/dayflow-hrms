@@ -49,7 +49,7 @@ export default async function EmployeesPage({
           <h2 className="font-headline-xl text-headline-xl font-bold text-primary tracking-tight">Employees</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Manage your workforce directory, roles, and status across all departments.</p>
         </div>
-        <Link href="/employees/new" className="flex items-center gap-2 bg-secondary text-on-secondary border-2 border-primary px-6 py-3 rounded-DEFAULT font-label-md text-label-md btn-hover-lift h-fit">
+        <Link href="/employees/new" className="flex items-center gap-2 bg-secondary text-secondary-foreground border-2 border-primary px-6 py-3 rounded-DEFAULT font-label-md text-label-md btn-hover-lift h-fit">
           <span className="material-symbols-outlined text-[20px]">person_add</span>
           Add Employee
         </Link>
@@ -111,7 +111,7 @@ export default async function EmployeesPage({
           <p className="font-label-sm text-label-sm text-on-surface-variant">Showing all entries</p>
           <div className="flex items-center gap-2">
             <button className="px-3 py-1 border border-outline-variant rounded-DEFAULT text-on-surface hover:bg-surface hover:border-primary transition-colors font-label-sm text-label-sm disabled:opacity-50" disabled>Previous</button>
-            <button className="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-DEFAULT font-label-sm text-label-sm">1</button>
+            <button className="w-8 h-8 flex items-center justify-center bg-primary text-primary-foreground rounded-DEFAULT font-label-sm text-label-sm">1</button>
             <button className="px-3 py-1 border border-primary rounded-DEFAULT text-primary hover:bg-surface hover:border-secondary hover:text-secondary transition-colors font-label-sm text-label-sm disabled:opacity-50" disabled>Next</button>
           </div>
         </div>
