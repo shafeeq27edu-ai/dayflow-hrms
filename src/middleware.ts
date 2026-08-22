@@ -59,13 +59,11 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   const pathname = request.nextUrl.pathname
-  const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/forgot-password')
+  const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/forgot-password') || pathname.startsWith('/auth/callback') || pathname.startsWith('/reset-password')
   
   if (!user && !isAuthRoute) {
     // Unauthenticated, redirect to login
-    const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    return NextResponse.redirect(url)
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 
   if (user) {
@@ -81,30 +79,22 @@ export async function middleware(request: NextRequest) {
 
       if (employee.temporary_password_required && !isPasswordChangeRoute) {
         // Force password change
-        const url = request.nextUrl.clone()
-        url.pathname = '/change-password'
-        return NextResponse.redirect(url)
+        return NextResponse.redirect(new URL('/change-password', request.url))
       }
 
       if (!employee.temporary_password_required && isPasswordChangeRoute) {
         // Already changed password, can't access this route
-        const url = request.nextUrl.clone()
-        url.pathname = '/dashboard'
-        return NextResponse.redirect(url)
+        return NextResponse.redirect(new URL('/dashboard', request.url))
       }
 
       // Role-based authorization for Phase 1
       if (pathname.startsWith('/employees') && employee.role === 'employee') {
-        const url = request.nextUrl.clone()
-        url.pathname = '/dashboard'
-        return NextResponse.redirect(url)
+        return NextResponse.redirect(new URL('/dashboard', request.url))
       }
     }
 
     if (isAuthRoute || pathname === '/') {
-      const url = request.nextUrl.clone()
-      url.pathname = '/dashboard'
-      return NextResponse.redirect(url)
+      return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }
 
