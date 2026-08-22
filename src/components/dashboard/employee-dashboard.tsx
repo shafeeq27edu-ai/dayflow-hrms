@@ -66,7 +66,7 @@ export async function EmployeeDashboard({ employee }: { employee: any }) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-lg mb-stack-lg">
         {/* Primary Action Card: Attendance */}
-        <AttendanceWidget initialRecord={attendanceData} employeeId={employee.id} />
+        <AttendanceWidget initialRecord={attendanceData} />
 
         {/* Status Card: Next Pay */}
         <div className="bg-surface border border-primary p-gutter flex flex-col justify-between">

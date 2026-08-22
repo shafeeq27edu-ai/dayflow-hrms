@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import { checkIn, checkOut } from '@/app/actions/attendance'
 
 type AttendanceRecord = {
   id: string
@@ -13,62 +13,43 @@ type AttendanceRecord = {
 }
 
 export function AttendanceWidget({ 
-  initialRecord, 
-  employeeId 
+  initialRecord
 }: { 
-  initialRecord: AttendanceRecord | null,
-  employeeId: string
+  initialRecord: AttendanceRecord | null
 }) {
-  const supabase = createClient()
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [record, setRecord] = useState(initialRecord)
 
   const handleCheckIn = async () => {
     setLoading(true)
-    const today = new Date().toISOString().split('T')[0]
-    const now = new Date().toISOString()
-    
-    const { data, error } = await supabase
-      .from('attendance')
-      .insert({
-        employee_id: employeeId,
-        attendance_date: today,
-        check_in: now,
-        status: 'present'
-      })
-      .select()
-      .single()
-
-    if (!error && data) {
-      setRecord(data as AttendanceRecord)
-      router.refresh()
+    try {
+      const result = await checkIn()
+      if (result.success) {
+        setRecord(result.data as AttendanceRecord)
+        router.refresh()
+      }
+    } catch (error) {
+      console.error('Failed to check in:', error)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const handleCheckOut = async () => {
-    if (!record || !record.check_in) return
+    if (!record || !record.id) return
     setLoading(true)
-    const now = new Date()
-    const checkInTime = new Date(record.check_in)
-    const workedMinutes = Math.floor((now.getTime() - checkInTime.getTime()) / 60000)
-
-    const { data, error } = await supabase
-      .from('attendance')
-      .update({
-        check_out: now.toISOString(),
-        worked_minutes: workedMinutes
-      })
-      .eq('id', record.id)
-      .select()
-      .single()
-
-    if (!error && data) {
-      setRecord(data as AttendanceRecord)
-      router.refresh()
+    try {
+      const result = await checkOut(record.id)
+      if (result.success) {
+        setRecord(result.data as AttendanceRecord)
+        router.refresh()
+      }
+    } catch (error) {
+      console.error('Failed to check out:', error)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   // Calculate elapsed time for display if checked in but not out
