@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { checkIn, checkOut } from '@/app/actions/attendance'
 
@@ -20,6 +20,11 @@ export function AttendanceWidget({
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [record, setRecord] = useState(initialRecord)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleCheckIn = async () => {
     setLoading(true)
@@ -75,7 +80,7 @@ export function AttendanceWidget({
         <div>
           <h3 className="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-2">Today&apos;s Attendance</h3>
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="font-headline-lg text-headline-lg text-primary">{getElapsedString()}</span>
+            <span className="font-headline-lg text-headline-lg text-primary">{mounted ? getElapsedString() : '0h 0m'}</span>
             {record?.check_in && !record.check_out && (
               <span className="font-label-sm text-label-sm text-secondary bg-error-container px-2 py-1 rounded">Active</span>
             )}
@@ -84,9 +89,9 @@ export function AttendanceWidget({
             )}
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant">
-            {record?.check_in 
-              ? `Clocked in at ${new Date(record.check_in).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`
-              : 'Not clocked in yet'}
+            {mounted 
+              ? (record?.check_in ? `Clocked in at ${new Date(record.check_in).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}` : 'Not clocked in yet')
+              : 'Loading...'}
           </p>
         </div>
         <div className="mt-stack-md md:mt-0">

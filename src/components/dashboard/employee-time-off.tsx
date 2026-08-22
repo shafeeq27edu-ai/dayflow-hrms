@@ -10,18 +10,22 @@ export async function EmployeeTimeOff({ userId }: { userId: string }) {
     .eq('employee_id', userId)
     .order('created_at', { ascending: false })
 
-  const balances = {
-    casual: { total: 10, used: leaveRequests?.filter(r => r.leave_type === 'casual' && r.status === 'approved').length || 0 },
-    sick: { total: 12, used: leaveRequests?.filter(r => r.leave_type === 'sick' && r.status === 'approved').length || 0 },
-    earned: { total: 20, used: leaveRequests?.filter(r => r.leave_type === 'earned' && r.status === 'approved').length || 0 }
-  }
-
   const calculateDuration = (start: string, end: string) => {
     const s = new Date(start)
     const e = new Date(end)
     const diffTime = Math.abs(e.getTime() - s.getTime())
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1 // inclusive
   }
+
+  let approvedDays = 0
+  let pendingDays = 0
+  const totalRequests = leaveRequests?.length || 0
+
+  leaveRequests?.forEach(r => {
+    const duration = calculateDuration(r.start_date, r.end_date)
+    if (r.status === 'approved') approvedDays += duration
+    if (r.status === 'pending') pendingDays += duration
+  })
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -36,64 +40,65 @@ export async function EmployeeTimeOff({ userId }: { userId: string }) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
-        {/* Casual Leave */}
+      {/* Balances Overview Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-xl">
+        {/* Approved */}
         <div className="bg-surface-lowest border border-primary rounded p-stack-md flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4 border-b border-primary pb-2">
-            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Casual Leave</h3>
-            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">beach_access</span>
+            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Approved Leave</h3>
+            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">done_all</span>
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
-                {String(balances.casual.total - balances.casual.used).padStart(2, '0')}
+                {String(approvedDays).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Approved</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
-              <div className="bg-secondary h-full border-r border-primary" style={{ width: `${(balances.casual.used / balances.casual.total) * 100}%` }}></div>
+              <div className="bg-secondary h-full border-r border-primary w-full"></div>
             </div>
-            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">{balances.casual.used} days used / {balances.casual.total} total</p>
+            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">Total approved days</p>
           </div>
         </div>
 
-        {/* Sick Leave */}
+        {/* Pending */}
         <div className="bg-surface-lowest border border-primary rounded p-stack-md flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4 border-b border-primary pb-2">
-            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Sick Leave</h3>
-            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">medical_services</span>
+            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Pending Leave</h3>
+            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">pending_actions</span>
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
-                {String(balances.sick.total - balances.sick.used).padStart(2, '0')}
+                {String(pendingDays).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Pending</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
-              <div className="bg-[#FFC300] h-full border-r border-primary" style={{ width: `${(balances.sick.used / balances.sick.total) * 100}%` }}></div>
+              <div className="bg-surface-variant h-full border-r border-primary w-full"></div>
             </div>
-            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">{balances.sick.used} days used / {balances.sick.total} total</p>
+            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">Awaiting HR approval</p>
           </div>
         </div>
 
-        {/* Earned Leave */}
+        {/* Total Requests */}
         <div className="bg-surface-lowest border border-primary rounded p-stack-md flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4 border-b border-primary pb-2">
-            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Earned Leave</h3>
-            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">account_balance_wallet</span>
+            <h3 className="font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">Total Requests</h3>
+            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">format_list_bulleted</span>
           </div>
           <div>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="font-headline-lg text-headline-lg font-bold text-primary">
-                {String(balances.earned.total - balances.earned.used).padStart(2, '0')}
+                {String(totalRequests).padStart(2, '0')}
               </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Days Policy (Demo)</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant uppercase">Requests Made</span>
             </div>
             <div className="w-full bg-surface-container-high h-2 border border-primary rounded-full overflow-hidden">
-              <div className="bg-primary h-full border-r border-primary" style={{ width: `${(balances.earned.used / balances.earned.total) * 100}%` }}></div>
+              <div className="bg-primary h-full border-r border-primary w-full"></div>
             </div>
-            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">{balances.earned.used} days used / {balances.earned.total} total</p>
+            <p className="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">All time requests</p>
           </div>
         </div>
       </div>
