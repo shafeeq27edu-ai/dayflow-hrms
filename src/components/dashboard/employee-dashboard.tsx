@@ -31,9 +31,24 @@ export async function EmployeeDashboard({ employee }: { employee: any }) {
     .order('payroll_month', { ascending: false })
     .limit(2)
 
-  // Determine available leave (dummy logic for visual since schema doesn't track accrual balance natively)
-  // Real implementation would calculate based on leave_requests and join date.
-  const availableLeave = 12
+  // Calculate taken leave days
+  const { data: approvedLeaves } = await supabase
+    .from('leave_requests')
+    .select('*')
+    .eq('employee_id', employee.id)
+    .eq('status', 'approved')
+
+  let takenLeaveDays = 0
+  if (approvedLeaves) {
+    approvedLeaves.forEach(req => {
+      const start = new Date(req.start_date)
+      const end = new Date(req.end_date)
+      // +1 because same day leave is 1 day
+      const diffTime = Math.abs(end.getTime() - start.getTime())
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1
+      takenLeaveDays += diffDays
+    })
+  }
 
   // Date formatting helper
   const formatDate = (dateStr: string) => {
@@ -41,15 +56,15 @@ export async function EmployeeDashboard({ employee }: { employee: any }) {
   }
 
   return (
-    <div className="flex flex-col gap-stack-lg pb-stack-lg">
-      <header>
+    <div>
+      <header className="mb-stack-lg">
         <h2 className="font-headline-xl text-headline-xl text-primary">Good morning, {employee.full_name?.split(' ')[0] || 'there'}.</h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant mt-2">
           Here is your daily overview for {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-lg">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-lg mb-stack-lg">
         {/* Primary Action Card: Attendance */}
         <AttendanceWidget initialRecord={attendanceData} employeeId={employee.id} />
 
@@ -69,13 +84,12 @@ export async function EmployeeDashboard({ employee }: { employee: any }) {
           </div>
         </div>
 
-        {/* Status Card: Available Leave */}
         <div className="bg-surface border border-primary p-gutter flex flex-col justify-between">
-          <h3 className="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider border-b border-primary pb-2 mb-stack-sm">Available Leave</h3>
+          <h3 className="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider border-b border-primary pb-2 mb-stack-sm">Leave Taken</h3>
           <div className="flex-grow flex items-center justify-center py-stack-md">
             <div className="text-center">
-              <span className="font-headline-xl text-headline-xl text-primary block">{availableLeave}</span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant">Days Remaining</span>
+              <span className="font-headline-xl text-headline-xl text-primary block">{takenLeaveDays}</span>
+              <span className="font-label-sm text-label-sm text-on-surface-variant">Days Approved</span>
             </div>
           </div>
           <Link href="/time-off" className="block text-center w-full py-2 border border-primary text-primary font-label-md text-label-md hover:bg-surface-container transition-colors">
